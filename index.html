@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SDP Clinic – Comprehensive Healthcare</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9fafb;
+    }
+    header {
+      background: #0f766e;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+    nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .hero {
+      background: linear-gradient(rgba(15,118,110,0.85), rgba(15,118,110,0.85)), url('https://via.placeholder.com/1600x600') center/cover no-repeat;
+      color: #fff;
+      padding: 80px 40px;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    section {
+      padding: 60px 40px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    section h3 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 28px;
+      color: #0f766e;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    .card h4 {
+      margin-bottom: 10px;
+      color: #0f766e;
+    }
+    .about {
+      background: #eef7f6;
+      border-radius: 16px;
+      padding: 40px;
+    }
+    footer {
+      background: #0f766e;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    footer p {
+      margin: 5px 0;
+    }
+      button.primary{background:#0f766e;color:#fff;border:none;padding:12px 20px;border-radius:8px;font-size:16px;cursor:pointer;}button.primary:hover{opacity:.9}.cta{margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap}.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);align-items:center;justify-content:center;z-index:999}.modal-content{background:#fff;padding:30px;border-radius:14px;max-width:400px;width:90%}.modal-content h4{margin-top:0;color:#0f766e}.modal-content input,.modal-content textarea{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px solid #ccc}.close{float:right;cursor:pointer;font-size:20px}
+  </style>
+</head>
+<body>
+
+<header>
+  <div style="display:flex;align-items:center;gap:12px;"><img src="logo.jpeg" alt="SDP Clinic Logo" style="height:50px;width:auto;" /><h1>SDP Clinic</h1></div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Your Health, Our Priority</h2>
+  <p>SDP Clinic provides trusted, compassionate, and specialized healthcare services to support you and your family at every stage of life.</p>
+  <div class="cta">
+    <button class="primary" onclick="openModal()">Book Appointment</button>
+    <a href="tel:+919940878707"><button class="primary">Call Now</button></a>
+    <a href="https://wa.me/919940878707" target="_blank"><button class="primary">WhatsApp</button></a>
+  </div>
+</section>
+
+<section id="services">
+  <h3>Our Specialties</h3>
+  <div class="services">
+    <div class="card">
+      <h4>Diabetic Care</h4>
+      <p>Comprehensive diabetes management including monitoring, medication guidance, and lifestyle support.</p>
+    </div>
+    <div class="card">
+      <h4>Women’s Health</h4>
+      <p>Dedicated care for women’s wellness, reproductive health, and preventive screenings.</p>
+    </div>
+    <div class="card">
+      <h4>Pain Management</h4>
+      <p>Personalized pain management solutions to improve comfort and quality of life.</p>
+    </div>
+    <div class="card">
+      <h4>Cardiac Care</h4>
+      <p>Heart health services including risk assessment, treatment, and long-term care.</p>
+    </div>
+    <div class="card">
+      <h4>General Health</h4>
+      <p>Routine check-ups, diagnosis, and treatment for common and chronic conditions.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about">
+    <h3>About SDP Clinic</h3>
+    <p>SDP Clinic is committed to delivering high-quality medical care with a patient-first approach. Our experienced healthcare professionals focus on accurate diagnosis, effective treatment, and compassionate support to ensure your well-being.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h3>Contact Us</h3>
+  <p style="text-align:center;">📍 Location: Your Clinic Address Here<br />📞 Phone: +91 99408 78707<br />✉️ Email: info@sdpclinic.com</p>
+</section>
+
+<footer>
+  <p>© 2026 SDP Clinic. All rights reserved.</p>
+</footer>
+
+<div class="modal" id="appointmentModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h4>Book Appointment</h4>
+    <input type="text" placeholder="Patient Name" />
+    <input type="tel" placeholder="Phone Number" />
+    <textarea placeholder="Health Concern"></textarea>
+    <button class="primary" onclick="submitForm()">Submit</button>
+  </div>
+</div>
+
+<script>
+  const modal=document.getElementById('appointmentModal');
+  function openModal(){modal.style.display='flex';}
+  function closeModal(){modal.style.display='none';}
+  function submitForm(){alert('Thank you! We will contact you shortly.');closeModal();}
+  document.querySelectorAll('nav a').forEach(a=>{
+    a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});});
+  });
+</script>
+
+</body>
+</html>
