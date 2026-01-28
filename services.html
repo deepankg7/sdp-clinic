@@ -1,126 +1,719 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - Healthy Life Clinic</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Optional external CSS -->
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background-color: #f4f9f9;
-            color: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        header {
-            background-color: #1abc9c;
-            color: #fff;
-            padding: 2rem 1rem;
-            text-align: center;
-        }
+  <!-- SEO -->
+  <meta name="description" content="SDP Clinic offers compassionate women’s health care including checkups, hormonal care, pregnancy guidance, and free consultation for the needy.">
+  <meta name="keywords" content="Women Health Clinic, SDP Clinic, Free Medical Consultation, Pregnancy Care">
 
-        header h1 {
-            margin: 0;
-            font-size: 2.2rem;
-        }
+  <title>SDP Clinic – Comprehensive Healthcare</title>
 
-        header p {
-            margin: 0.5rem 0 0 0;
-            font-size: 1.1rem;
-        }
+  <!-- Shared CSS (optional external) -->
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
 
-        main {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
+  <style>
+    /* ================== THEME ================== */
+    :root {
+      --primary:#0a3d62;
+      --secondary:#1e6091;
+      --accent:#38bdf8;
+      --success:#16a34a;
+      --bg:#f4f8fb;
+      --text:#1f2937;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --ring:#93c5fd;
+      --border:#e5e7eb;
+      --shadow:0 8px 24px rgba(0,0,0,.08);
+      --radius:14px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:#0b1220;
+        --text:#e6edf3;
+        --card:#0f172a;
+        --border:#263247;
+        --shadow:0 8px 24px rgba(0,0,0,.45);
+      }
+    }
+    * { box-sizing: border-box }
+    html, body { height: 100% }
+    body {
+      margin:0;
+      font-family: system-ui, "Segoe UI", Roboto, Arial, Helvetica, sans-serif;
+      line-height:1.6;
+      color:var(--text);
+      background:var(--bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; text-decoration: none }
+    img { max-width: 100%; height: auto }
 
-        h2 {
-            text-align: center;
-            color: #1abc9c;
-            margin-bottom: 2rem;
-        }
+    /* ================== HEADER ================== */
+    .site-header {
+      background: var(--primary);
+      color:#fff;
+      position: sticky;
+      top:0;
+      z-index:1000;
+      box-shadow: 0 4px 16px rgba(0,0,0,.2);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .nav {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+    }
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+    .brand h1 {
+      margin:0;
+      font-size:20px;
+      font-weight:700;
+      letter-spacing:.3px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+	
+	/* White background for main area */
+main {
+  background: #ffffff;
+  padding: 40px 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  max-width: 1200px;
+  margin: 40px auto;
+}
 
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
+/* White background for services grid cards */
+.services-grid {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
 
-        .service-card {
-            background-color: #fff;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-        }
+    .brand img {
+      height:44px; width:auto; border-radius:8px; background:#fff;
+    }
 
-        .service-card h3 {
-            margin-top: 0;
-            color: #16a085;
-        }
+    /* Desktop nav */
+    .nav-links {
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    .nav-links a {
+      color:#fff;
+      font-size:15px;
+      padding:8px 10px;
+      border-radius:8px;
+    }
+    .nav-links a:focus-visible {
+      outline:2px solid var(--ring);
+      outline-offset:3px;
+    }
+    .nav-links a:hover { text-decoration: underline }
 
-        .service-card p {
-            margin-bottom: 0;
-        }
+    /* Mobile menu button */
+    .menu-toggle {
+      display:none;
+      background:transparent;
+      border:1px solid rgba(255,255,255,.35);
+      color:#fff;
+      padding:8px 12px;
+      border-radius:10px;
+      cursor:pointer;
+      font-size:14px;
+    }
 
-        footer {
-            text-align: center;
-            padding: 1.5rem 0;
-            background-color: #16a085;
-            color: #fff;
-            margin-top: 3rem;
-        }
-    </style>
+    /* Mobile menu panel */
+    .mobile-panel {
+      display:none;
+      background: linear-gradient(0deg, rgba(255,255,255,.08), rgba(255,255,255,.08));
+      backdrop-filter: blur(6px);
+    }
+    .mobile-panel a {
+      display:block;
+      padding:12px 16px;
+      color:#fff;
+      border-top:1px solid rgba(255,255,255,.12);
+    }
+    .mobile-panel a:focus-visible {
+      outline:2px solid var(--ring);
+      outline-offset:2px;
+    }
+
+    /* ================== HERO ================== */
+    .hero {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color:#fff;
+      padding:80px 0 64px;
+      text-align:center;
+    }
+    .hero h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      margin:0 0 8px;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+    .hero p {
+      font-size: clamp(15px, 2.2vw, 18px);
+      max-width: 760px;
+      margin:0 auto;
+      opacity:.96;
+    }
+    .cta {
+      margin-top:28px;
+      display:flex;
+      gap:14px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:12px 22px;
+      border:none;
+      border-radius:12px;
+      font-size:16px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 16px rgba(0,0,0,.18);
+      transition: transform .06s ease, opacity .2s ease;
+    }
+    .btn:active { transform: scale(.98) }
+    .btn-primary {
+      background: var(--accent);
+      color:#003049;
+    }
+    .btn-outline {
+      background: transparent;
+      color:#fff;
+      border:1px solid rgba(255,255,255,.6);
+    }
+
+    /* ================== SECTIONS ================== */
+    section.section {
+      padding:60px 20px;
+    }
+    section.section h3 {
+      text-align:center;
+      font-size: clamp(22px, 3vw, 30px);
+      color: var(--primary);
+      margin: 0 0 24px;
+    }
+
+    /* Services grid */
+    .services-grid {
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:18px;
+      max-width:1100px;
+      margin: 0 auto;
+    }
+    @media (min-width: 640px) {
+      .services-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+    @media (min-width: 980px) {
+      .services-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    }
+    .service-card {
+      background: var(--card);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px 18px 16px;
+      transition: transform .15s ease, box-shadow .2s ease;
+    }
+    .service-card:hover { transform: translateY(-2px); }
+    .service-card h4 {
+      margin:0 0 8px;
+      font-size:18px;
+      color: var(--primary);
+    }
+    .service-card p {
+      margin:0;
+      color:#374151;
+    }
+    @media (prefers-color-scheme: dark) {
+      .service-card p { color:#cbd5e1; }
+    }
+
+    /* About & Contact text */
+    .centered {
+      text-align:center;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+    .contact-highlight {
+      color:#0b4f6c;
+      font-weight:700;
+    }
+
+    /* ================== FOOTER ================== */
+    footer {
+      background: var(--primary);
+      color:#e5e7eb;
+      text-align:center;
+      padding:22px;
+      font-size:14px;
+    }
+
+    /* ================== BADGE & LANG ================== */
+    .badge {
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      background:var(--success);
+      color:#fff;
+      padding:14px 18px;
+      border-radius:999px;
+      font-weight:700;
+      box-shadow:0 8px 20px rgba(0,0,0,.25);
+      z-index:1050;
+      cursor:pointer;
+      border:none;
+    }
+    .badge:focus-visible {
+      outline:3px solid var(--ring);
+      outline-offset:2px;
+    }
+    .lang-toggle {
+      position:fixed;
+      bottom:86px;
+      right:20px;
+      background:var(--primary);
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 8px 20px rgba(0,0,0,.25);
+      z-index:1050;
+      display:flex;
+    }
+    .lang-toggle button {
+      background:transparent;
+      border:none;
+      color:#fff;
+      padding:8px 14px;
+      font-size:13px;
+      cursor:pointer;
+    }
+    .lang-toggle button.active {
+      background:var(--accent);
+      color:#003049;
+    }
+    .lang-toggle button:focus-visible {
+      outline:2px solid var(--ring);
+      outline-offset:2px;
+    }
+
+    /* ================== MODAL ================== */
+    .modal {
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.65);
+      align-items:center;
+      justify-content:center;
+      z-index:1100;
+    }
+    .modal[open] { display:flex; }
+    .modal-content {
+      background:#fff;
+      padding:24px;
+      border-radius:16px;
+      max-width:480px;
+      width:92%;
+      box-shadow:0 10px 28px rgba(0,0,0,.25);
+    }
+    .modal-content h4 {
+      margin:0 0 8px;
+      color:var(--primary);
+      font-size:20px;
+    }
+    .modal-content form {
+      margin-top:10px;
+    }
+    .modal-content label {
+      display:block;
+      font-size:13px;
+      color:#374151;
+      margin:10px 0 6px;
+    }
+    .modal-content input,
+    .modal-content textarea {
+      width:100%;
+      padding:12px;
+      border-radius:10px;
+      border:1px solid #cbd5e1;
+      background:#fff;
+      color:#111827;
+      font-size:15px;
+    }
+    .modal-content textarea { min-height:100px; resize:vertical; }
+    .modal-actions {
+      display:flex;
+      gap:10px;
+      justify-content:flex-end;
+      margin-top:14px;
+    }
+    .close-x {
+      float:right;
+      cursor:pointer;
+      font-size:22px;
+      color:#6b7280;
+    }
+    .error-msg {
+      color:#b91c1c;
+      font-size:13px;
+      margin-top:6px;
+      display:none;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .btn, .service-card { transition: none }
+      .hero { background: var(--primary) }
+    }
+
+    /* Accessibility skip link */
+    .skip-link {
+      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+    }
+    .skip-link:focus {
+      position:static; width:auto; height:auto; padding:8px 12px; background:#fff; color:#000; z-index:2000;
+    }
+  </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<header>
-    <h1>Healthy Life Clinic</h1>
-    <p>Comprehensive healthcare services for you and your family</p>
-</header>
+  <!-- ============== HEADER ============== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav" role="navigation" aria-label="Primary">
+        <div class="brand">
+          <img src="logo.jpeg" alt="SDP Clinic Logo" loading="lazy" decoding="async" />
+          <h1>SDP Clinic</h1>
+        </div>
 
-<main>
-    <h2>Our Healthcare Services</h2>
-    <div class="services">
-        <div class="service-card">
-            <h3>General Consultation</h3>
-            <p>Professional medical advice and check-ups to ensure your overall well-being.</p>
-        </div>
-        <div class="service-card">
-            <h3>Pediatrics</h3>
-            <p>Specialized care for infants, children, and adolescents to support healthy growth.</p>
-        </div>
-        <div class="service-card">
-            <h3>Cardiology</h3>
-            <p>Expert heart care, diagnosis, and treatment for cardiovascular conditions.</p>
-        </div>
-        <div class="service-card">
-            <h3>Laboratory Services</h3>
-            <p>On-site lab tests for accurate and timely diagnosis of various conditions.</p>
-        </div>
-        <div class="service-card">
-            <h3>Vaccinations</h3>
-            <p>Routine and specialized immunizations to protect you and your family.</p>
-        </div>
-        <div class="service-card">
-            <h3>Physiotherapy</h3>
-            <p>Rehabilitation and therapy services to restore mobility and improve quality of life.</p>
-        </div>
+        <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+          ☰ Menu
+        </button>
+
+        <nav class="nav-links" aria-label="Desktop navigation">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+
+      <nav id="mobileMenu" class="mobile-panel" aria-label="Mobile navigation">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-</main>
+  </header>
 
-<footer>
-    <p>&copy; 2026 Healthy Life Clinic. All Rights Reserved.</p>
-</footer>
+  <!-- ============== HERO ============== -->
+  <section class="hero">
+    <div class="container">
+      <h2>Your Health, Our Priority</h2>
+      <p>
+        SDP Clinic provides trusted, compassionate, and specialized healthcare services to support you and your family at every stage of life.
+      </p>
+      <div class="cta">
+        <button class="btn btn-primary" onclick="openModal()" data-i18n="book">Book Appointment</button>
+        <a href="https://wa.me/919940878707?text=Hello%20SDP%20Clinic,%20I%20would%20like%20free%20consultation" target="_blank" rel="noopener">
+          <button class="btn btn-outline" data-i18n="free">Free Consultation</button>
+        </a>
+      </div>
+    </div>
+  </section>
 
+  <!-- ============== MAIN ============== -->
+  <main id="main" tabindex="-1">
+    <section class="section">
+      <div class="container">
+        <h3>Our Healthcare Services</h3>
+        <div class="services-grid">
+          <article class="service-card">
+            <h4>General Consultation</h4>
+            <p>Professional medical advice and check-ups to ensure your overall well-being.</p>
+          </article>
+          <article class="service-card">
+            <h4>Pediatrics</h4>
+            <p>Specialized care for infants, children, and adolescents to support healthy growth.</p>
+          </article>
+          <article class="service-card">
+            <h4>Cardiology</h4>
+            <p>Expert heart care, diagnosis, and treatment for cardiovascular conditions.</p>
+          </article>
+          <article class="service-card">
+            <h4>Laboratory Services</h4>
+            <p>On-site lab tests for accurate and timely diagnosis of various conditions.</p>
+          </article>
+          <article class="service-card">
+            <h4>Vaccinations</h4>
+            <p>Routine and specialized immunizations to protect you and your family.</p>
+          </article>
+          <article class="service-card">
+            <h4>Physiotherapy</h4>
+            <p>Rehabilitation and therapy services to restore mobility and improve quality of life.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h3>About SDP Clinic</h3>
+        <p class="centered">
+          SDP Clinic is committed to ethical, affordable, and compassionate healthcare. As part of our social responsibility, we proudly offer
+          <strong>FREE consultation for economically weaker patients</strong>. No one should be denied care due to financial hardship.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h3>Contact &amp; Free Consultation</h3>
+        <p class="centered">
+          📍 Clinic Address Here<br>
+          🕕 Visiting Hours: 6:00 PM – 9:00 PM<br>
+          📞 +91 99408 78707
+        </p>
+        <p class="centered contact-highlight">
+          ✔ Free consultation available for needy patients
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============== FOOTER ============== -->
+  <footer>
+    <p>© 2026 SDP Clinic. All rights reserved.</p>
+  </footer>
+
+  <!-- ============== MODAL ============== -->
+  <div class="modal" id="appointmentModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <button class="close-x" aria-label="Close" onclick="closeModal()">&times;</button>
+      <h4 id="modalTitle">Book Appointment</h4>
+      <form id="apptForm" novalidate>
+        <label for="patientName">Patient Name</label>
+        <input id="patientName" name="patientName" type="text" placeholder="Enter patient name" required />
+        <div id="nameErr" class="error-msg">Please enter your name.</div>
+
+        <label for="phoneNumber">Phone Number</label>
+        <input id="phoneNumber" name="phoneNumber" type="tel" placeholder="+91 9XXXXXXXXX" inputmode="tel" pattern="^[+0-9\s-]{8,15}$" required />
+        <div id="phoneErr" class="error-msg">Please enter a valid phone number (8–15 digits).</div>
+
+        <label for="healthConcern">Health Concern</label>
+        <textarea id="healthConcern" name="healthConcern" placeholder="Describe your concern" required></textarea>
+        <div id="concernErr" class="error-msg">Please describe your health concern.</div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" onclick="closeModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Floating Badge -->
+  <button class="badge" onclick="openWhatsApp()" data-i18n="badge" aria-label="Free Consultation on WhatsApp">
+    Free Consultation Available
+  </button>
+
+  <!-- Language Toggle -->
+  <div class="lang-toggle" role="group" aria-label="Language selector">
+    <button type="button" onclick="setLang('en')" class="active" aria-pressed="true">EN</button>
+    <button type="button" onclick="setLang('ta')" aria-pressed="false">TA</button>
+    <button type="button" onclick="setLang('hi')" aria-pressed="false">HI</button>
+  </div>
+
+  <!-- Optional external JS -->
+  <!-- <script src="js/main.js" defer></script> -->
+
+  <script>
+    // ======= Mobile Menu =======
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuToggle.addEventListener('click', () => {
+      const open = mobileMenu.style.display === 'block';
+      mobileMenu.style.display = open ? 'none' : 'block';
+      menuToggle.setAttribute('aria-expanded', String(!open));
+    });
+
+    // Close mobile menu on nav click (single-page feel if linking anchors)
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileMenu.style.display = 'none';
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // ======= WhatsApp =======
+    function openWhatsApp(){
+      const msg = encodeURIComponent("Hello SDP Clinic, I would like free consultation");
+      window.open('https://wa.me/919940878707?text=' + msg, '_blank', 'noopener');
+    }
+    window.openWhatsApp = openWhatsApp;
+
+    // ======= Modal with focus trap =======
+    const modal = document.getElementById('appointmentModal');
+    const form = document.getElementById('apptForm');
+    let lastFocused;
+
+    function openModal() {
+      lastFocused = document.activeElement;
+      modal.setAttribute('open', '');
+      // Focus first field
+      setTimeout(() => document.getElementById('patientName').focus(), 0);
+      document.addEventListener('keydown', escClose);
+      document.addEventListener('keydown', trapTab);
+    }
+    function closeModal() {
+      modal.removeAttribute('open');
+      document.removeEventListener('keydown', escClose);
+      document.removeEventListener('keydown', trapTab);
+      if (lastFocused) lastFocused.focus();
+    }
+    function escClose(e){ if (e.key === 'Escape') closeModal(); }
+
+    function trapTab(e) {
+      if (e.key !== 'Tab') return;
+      const focusable = modal.querySelectorAll('button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])');
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        last.focus(); e.preventDefault();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        first.focus(); e.preventDefault();
+      }
+    }
+    window.openModal = openModal;
+    window.closeModal = closeModal;
+
+    // Click outside to close
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // ======= Form Validation =======
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('patientName');
+      const phone = document.getElementById('phoneNumber');
+      const concern = document.getElementById('healthConcern');
+
+      let valid = true;
+
+      if (!name.value.trim()) {
+        document.getElementById('nameErr').style.display = 'block';
+        name.setAttribute('aria-invalid', 'true');
+        valid = false;
+      } else {
+        document.getElementById('nameErr').style.display = 'none';
+        name.removeAttribute('aria-invalid');
+      }
+
+      const phoneRe = /^[+0-9\s-]{8,15}$/;
+      if (!phoneRe.test(phone.value.trim())) {
+        document.getElementById('phoneErr').style.display = 'block';
+        phone.setAttribute('aria-invalid', 'true');
+        valid = false;
+      } else {
+        document.getElementById('phoneErr').style.display = 'none';
+        phone.removeAttribute('aria-invalid');
+      }
+
+      if (!concern.value.trim()) {
+        document.getElementById('concernErr').style.display = 'block';
+        concern.setAttribute('aria-invalid', 'true');
+        valid = false;
+      } else {
+        document.getElementById('concernErr').style.display = 'none';
+        concern.removeAttribute('aria-invalid');
+      }
+
+      if (!valid) return;
+
+      alert('Thank you! We will contact you shortly.');
+      form.reset();
+      closeModal();
+    });
+
+    // ======= i18n =======
+    const dict = {
+      en: {
+        badge:'Free Consultation Available',
+        book:'Book Appointment',
+        free:'Free Consultation (For Poor & Needy)'
+      },
+      ta: {
+        badge:'இலவச ஆலோசனை கிடைக்கும்',
+        book:'நேரம் பதிவு செய்யவும்',
+        free:'ஏழை மற்றும் தேவையுள்ளவர்களுக்கு இலவச ஆலோசனை'
+      },
+      hi: {
+        badge:'निःशुल्क परामर्श उपलब्ध',
+        book:'अपॉइंटमेंट बुक करें',
+        free:'गरीब और जरूरतमंदों के लिए निःशुल्क परामर्श'
+      }
+    };
+
+    function setLang(l) {
+      const map = dict[l] || dict.en;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (map[key]) el.textContent = map[key];
+      });
+      // Toggle active state
+      document.querySelectorAll('.lang-toggle button').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      const active = document.querySelector(`.lang-toggle button[onclick="setLang('${l}')"]`);
+      if (active) {
+        active.classList.add('active');
+        active.setAttribute('aria-pressed', 'true');
+      }
+    }
+    window.setLang = setLang;
+
+    // ======= Smooth in-page scroll for anchor links (if same-page) =======
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        const target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>

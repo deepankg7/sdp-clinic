@@ -1,144 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Healthy Life Clinic</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: #333; background-color: #f4f9f9; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us - Healthy Life Clinic</title>
 
-        header { background-color: #1abc9c; color: #fff; padding: 3rem 1rem; text-align: center; transition: background 0.3s; }
-        header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        header p { font-size: 1.2rem; }
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-        main { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+  <style>
+    border-box; margin: 0; padding: 0; }
 
-        h2 { color: #1abc9c; text-align: center; margin-bottom: 2rem; font-size: 2rem; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #e9f1f1;
+    }
 
-        /* About section */
-        .about-section { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; margin-bottom: 3rem; }
-        .about-text { flex: 1 1 400px; }
-        .about-text p { margin-bottom: 1rem; font-size: 1rem; }
-        .about-image { flex: 1 1 400px; text-align: center; }
-        .about-image img { max-width: 100%; border-radius: 10px; box-shadow: 0 3px 15px rgba(0,0,0,0.1); transition: transform 0.3s; }
-        .about-image img:hover { transform: scale(1.05); }
+    /* ========= HEADER ========= */
+    header {
+     background: var(--primary);
+    color: #fff;
+    padding: 18px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    }
 
-        /* Accordion for Mission & Vision */
-        .accordion { max-width: 800px; margin: 0 auto 3rem auto; }
-        .accordion-item { background: #fff; border-radius: 10px; margin-bottom: 1rem; box-shadow: 0 3px 15px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.3s; }
-        .accordion-item:hover { transform: translateY(-3px); }
-        .accordion-header { padding: 1rem 1.5rem; cursor: pointer; background-color: #16a085; color: #fff; font-weight: 500; }
-        .accordion-content { padding: 1rem 1.5rem; display: none; background-color: #f4f9f9; }
+   35rem; }
+    header p { font-size: 1.1rem; opacity: .95; }
 
-        /* Team section */
-        .team { margin-bottom: 3rem; }
-        .team-members { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-around; }
-        .team-member { background-color: #fff; padding: 1.5rem; border-radius: 10px; flex: 1 1 250px; text-align: center; box-shadow: 0 3px 10px rgba(0,0,0,0.1); transition: transform 0.3s; cursor: pointer; position: relative; overflow: hidden; }
-        .team-member:hover { transform: translateY(-5px); }
-        .team-member img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; transition: transform 0.3s; }
-        .team-member:hover img { transform: scale(1.1); }
-        .team-member h4 { margin-bottom: 0.3rem; color: #16a085; }
-        .team-member p { font-size: 0.95rem; color: #555; }
-        .team-member .contact { display: none; font-size: 0.9rem; margin-top: 0.5rem; color: #1abc9c; }
-        .team-member:hover .contact { display: block; }
+    nav {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    nav button {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.6);
+      padding: 8px 14px;
+      border-radius: 10px;
+      color: #fff;
+      cursor: pointer;
+    }
+    nav button:hover {
+      background: rgba(255,255,255,.15);
+    }
 
-        /* History timeline */
-        .history { background-color: #fff; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 15px rgba(0,0,0,0.1); margin-bottom: 3rem; }
-        .history h3 { color: #16a085; margin-bottom: 1rem; text-align: center; }
-        .timeline { position: relative; padding-left: 2rem; }
-        .timeline::before { content: ''; position: absolute; left: 10px; top: 0; width: 3px; height: 100%; background: #1abc9c; }
-        .timeline-item { position: relative; margin-bottom: 1.5rem; cursor: pointer; transition: transform 0.3s; }
-        .timeline-item:hover { transform: translateX(5px); }
-        .timeline-item::before { content: ''; position: absolute; left: -10px; top: 0; width: 20px; height: 20px; background: #1abc9c; border-radius: 50%; }
-        .timeline-item p { margin-left: 2rem; }
+    /* ========= MAIN CARD ========= */
+    main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 2rem 1.5rem;
+      background: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
 
-        /* Footer */
-        footer { text-align: center; padding: 2rem 1rem; background-color: #16a085; color: #fff; font-size: 0.9rem; }
+    h2 {
+      text-align: center;
+      color: #16a085;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
 
-        @media(max-width: 768px) {
-            .about-section, .team-members { flex-direction: column; align-items: center; }
-        }
-    </style>
+    /* ========= ABOUT SECTION ========= */
+    .about-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .about-text { flex: 1 1 380px; }
+    .about-text p { margin-bottom: 1rem; }
+
+    .about-image { flex: 1 1 380px; text-align: center; }
+    .about-image img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.12);
+      transition: .3s;
+    }
+    .about-image img:hover { transform: scale(1.03); }
+
+    /* ========= ARTICLE CARDS (Mission / Vision) ========= */
+    .info-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    @media(min-width: 768px){
+      .info-cards { grid-template-columns: repeat(2,1fr); }
+    }
+    article.info {
+      background: #ffffff;
+      padding: 1.6rem;
+      border-radius: 14px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    }
+    article.info h3 {
+      color: #16a085;
+      margin-bottom: .7rem;
+    }
+    article.info p {
+      color: #444;
+    }
+
+    /* ========= TEAM ========= */
+    .team {
+      margin-bottom: 3rem;
+    }
+    .team-members {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .team-member {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      width: 260px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+      transition: .3s;
+    }
+    .team-member:hover { transform: translateY(-5px); }
+
+    .team-member img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: .8rem;
+    }
+    .team-member h4 { margin-bottom:.3rem; color:#16a085; }
+
+    /* ========= TIMELINE ========= */
+    .history {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+    }
+
+    .history h3 {
+      text-align: center;
+      color: #16a085;
+      margin-bottom: 1rem;
+    }
+
+    .timeline {
+      padding-left: 2rem;
+      position: relative;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 0;
+      width: 3px;
+      height: 100%;
+      background: #1abc9c;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.4rem;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -10px;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #1abc9c;
+    }
+    .timeline-item p {
+      margin-left: 2rem;
+    }
+
+    /* ========= FOOTER ========= */
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      padding: 1.8rem 1rem;
+      background: #16a085;
+      color: #fff;
+    }
+
+    /* MOBILE FIXES */
+    @media(max-width:768px){
+      .about-section { flex-direction: column; text-align:center; }
+    }
+	
+	 /* PROFESSIONAL MEDICAL COLOR THEME */
+    :root{
+      --primary:#0a3d62;      /* Deep medical blue */
+      --secondary:#1e6091;    /* Calm blue */
+      --accent:#38bdf8;       /* Soft sky blue */
+      --success:#16a34a;      /* Medical green */
+      --bg:#f4f8fb;           /* Light hospital background */
+      --text:#1f2937;
+    }
+
+    body{margin:0;font-family:'Segoe UI',Arial,Helvetica,sans-serif;line-height:1.6;color:var(--text);background:var(--bg)}
+
+    header{background:var(--primary);color:#fff;padding:18px 30px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+    header h1{margin:0;font-size:24px;letter-spacing:.5px}
+
+    nav button{background:transparent;border:none;color:#fff;font-size:15px;margin-left:18px;cursor:pointer}
+    nav button:hover{opacity:.85;text-decoration:underline}
+
+    .hero{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;padding:90px 30px;text-align:center}
+    .hero h2{font-size:38px;margin-bottom:10px;font-weight:600}
+    .hero p{font-size:18px;max-width:720px;margin:0 auto;opacity:.95}
+
+    .cta{margin-top:32px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+    button.primary{
+      background:var(--accent);
+      color:#003049;
+      border:none;
+      padding:14px 26px;
+      border-radius:12px;
+      font-size:16px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 16px rgba(0,0,0,.15)
+    }
+    button.primary:hover{opacity:.9}
+
+    section{padding:60px 30px;max-width:1100px;margin:auto}
+    h3{text-align:center;font-size:30px;color:var(--primary);margin-bottom:30px}
+
+    /* Accordion */
+    .accordion{max-width:820px;margin:0 auto}
+    .acc-item{background:#fff;border-radius:14px;margin-bottom:16px;box-shadow:0 8px 20px rgba(0,0,0,.08)}
+    .acc-header{padding:20px 24px;font-size:18px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--primary)}
+    .acc-content{display:none;padding:0 24px 22px 24px;color:#374151}
+    .acc-item.active .acc-content{display:block}
+    .acc-item.active .acc-header span{transform:rotate(180deg)}
+
+    footer{background:var(--primary);color:#e5e7eb;text-align:center;padding:22px;font-size:14px}
+
+    /* Floating Elements */
+    .badge{position:fixed;bottom:20px;right:20px;background:var(--success);color:#fff;padding:14px 20px;border-radius:999px;font-weight:600;box-shadow:0 8px 20px rgba(0,0,0,.25);z-index:1000;cursor:pointer}
+
+    .lang-toggle{position:fixed;bottom:80px;right:20px;background:var(--primary);border-radius:12px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,.25);z-index:1000}
+    .lang-toggle button{background:transparent;border:none;color:#fff;padding:8px 14px;font-size:13px;cursor:pointer}
+    .lang-toggle button.active{background:var(--accent);color:#003049}
+
+    /* Modal */
+    .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);align-items:center;justify-content:center;z-index:999}
+    .modal-content{background:#fff;padding:30px;border-radius:16px;max-width:420px;width:92%;box-shadow:0 10px 25px rgba(0,0,0,.25)}
+    .modal-content h4{margin-top:0;color:var(--primary)}
+    .modal-content input,.modal-content textarea{width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #cbd5e1}
+    .close{float:right;cursor:pointer;font-size:22px;color:#6b7280}
+
+  </style>
 </head>
+
 <body>
 
 <header>
-    <h1>Healthy Life Clinic</h1>
-    <p>Dedicated to Your Health and Wellness</p>
+  <h1>Healthy Life Clinic</h1>
+  <p>Dedicated to Your Health and Wellness</p>
+
+  <nav>
+    <button onclick="goPage('index.html')">Home</button>
+    <button onclick="goPage('services.html')">Services</button>
+    <button onclick="goPage('about.html')">About</button>
+    <button onclick="goPage('contact.html')">Contact</button>
+  </nav>
 </header>
 
 <main>
-    <!-- About Section -->
-    <h2>Who We Are</h2>
-    <div class="about-section">
-        <div class="about-text">
-            <p>Healthy Life Clinic has been providing exceptional healthcare services for over 15 years. We focus on personalized, compassionate care for patients of all ages.</p>
-            <p>Our expert medical team, advanced technology, and patient-centered approach ensure your wellness and comfort in every visit.</p>
-        </div>
-        <div class="about-image">
-            <img src="clinic-building.jpg" alt="Clinic Building">
-        </div>
+
+  <h2>Who We Are</h2>
+
+  <!-- ABOUT SECTION -->
+  <div class="about-section">
+    <div class="about-text">
+      <p>Healthy Life Clinic has been providing exceptional healthcare services for over 15 years. We believe in personalized, compassionate care for patients of all ages.</p>
+      <p>Our expert medical team, advanced facilities, and patient-centered approach ensure comfort and wellness at every visit.</p>
     </div>
 
-    <!-- Accordion for Mission & Vision -->
-    <div class="accordion">
-        <div class="accordion-item">
-            <div class="accordion-header">Our Mission</div>
-            <div class="accordion-content">
-                <p>To provide accessible, comprehensive, and compassionate healthcare services that improve the quality of life of our patients.</p>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <div class="accordion-header">Our Vision</div>
-            <div class="accordion-content">
-                <p>To be the leading healthcare provider known for excellence, innovation, and patient-centered care in the region.</p>
-            </div>
-        </div>
+    <div class="about-image">
+      <img src="clinic-building.jpg" alt="Clinic Building">
     </div>
+  </div>
 
-    <!-- Our Team -->
-    <div class="team">
-        <h2>Meet Our Team</h2>
-        <div class="team-members">
-            <div class="team-member">
-                <img src="doctor1.jpg" alt="Dr. John Smith">
-                <h4>Dr. Sivadevapratha</h4>
-                <p>Assistant Professor / Emergency Critical Care</p>
-                <div class="contact">Email: ssivadevapratha@gmail.com</div>
-            </div>
-           
-        </div>
-    </div>
+  <!-- MISSION & VISION ARTICLES -->
+  <div class="info-cards">
 
-    <!-- History Timeline -->
-    <div class="history">
-        <h3>Our History</h3>
-        <div class="timeline">
-            <div class="timeline-item"><p>2026: Healthy Life Clinic founded with 2 staff members.</p></div>
-            <!-- <div class="timeline-item"><p>2010: Expanded services to include Pediatrics and Cardiology.</p></div> -->
-            <!-- <div class="timeline-item"><p>2015: Introduced on-site laboratory and diagnostic services.</p></div> -->
-            <!-- <div class="timeline-item"><p>2020: Modernized facilities and added telemedicine services.</p></div> -->
-        </div>
+    <article class="info">
+      <h3>Our Mission</h3>
+      <p>To provide accessible, affordable, and ethical medical care that improves the quality of life for individuals and families in our community.</p>
+    </article>
+
+    <article class="info">
+      <h3>Our Vision</h3>
+      <p>To be a leading healthcare provider known for excellence, innovation, and compassionate patient care.</p>
+    </article>
+
+  </div>
+
+  <!-- TEAM -->
+  <div class="team">
+    <h2>Meet Our Team</h2>
+
+    <div class="team-members">
+      <div class="team-member">
+        <img src="doctor1.jpg" alt="Dr. Sivadevapratha">
+        <h4>Dr. Sivadevapratha</h4>
+        <p>Assistant Professor / Emergency Critical Care</p>
+        <p style="color:#1abc9c;font-size:.9rem;">Email: ssivadevapratha@gmail.com</p>
+      </div>
+	  <div class="team-member">
+        <img src="doctor2.jpg" alt="Mrs. Aishwarya">
+        <h4>Mrs.Aishwarya</h4>
+        <p>Nurse </p>
+        <p style="color:#1abc9c;font-size:.9rem;">Email: Aishwarya7@gmail.com</p>
+      </div>
     </div>
+    </div>
+	
+	
+  <!-- HISTORY -->
+  <div class="history">
+    <h3>Our History</h3>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <p>2026 — Healthy Life Clinic founded with 2 staff members.</p>
+      </div>
+    </div>
+  </div>
+
 </main>
 
 <footer>
-    <p>&copy; 2026 Healthy Life Clinic. All Rights Reserved.</p>
+  <p>&copy; 2026 Healthy Life Clinic. All Rights Reserved.</p>
 </footer>
 
 <script>
-    // Accordion functionality
-    const headers = document.querySelectorAll('.accordion-header');
-    headers.forEach(header => {
-        header.addEventListener('click', () => {
-            const content = header.nextElementSibling;
-            const isOpen = content.style.display === 'block';
-            document.querySelectorAll('.accordion-content').forEach(c => c.style.display = 'none');
-            content.style.display = isOpen ? 'none' : 'block';
-        });
-    });
+  function goPage(p){ window.location.href = p; }
 </script>
 
 </body>
